@@ -12,16 +12,20 @@
 </head>
 <body>
     
-<?php
-    $sql = "SELECT * FROM users;";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
 
-    if($resultCheck > 0){
-        while($row = mysqli_fetch_assoc($result)){
-            echo $row['user_uid']. "<br>";
-        }
-    }
-?>
+    <form action="includes/signup.inc.php" method="POST">
+        <input type="text" name="first" placeholder="Enter FirstName...">
+        <br>
+        <input type="text" name="last" placeholder="Enter LastName...">
+        <br>
+        <input type="text" name="email" placeholder="Enter email...">
+        <br>
+        <input type="text" name="uid" placeholder="Enter UserName...">
+        <br>
+        <input type="password" name="pwd" placeholder="Enter Password...">
+        <br>
+        <button type="submit" name="submit"> SignUp </button>
+    </form>
+
 </body>
 </html>
