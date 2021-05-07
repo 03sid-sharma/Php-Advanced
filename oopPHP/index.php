@@ -12,8 +12,9 @@
 <body>
     <?php
         $testObj = new Test();
-        echo $testObj->getUsers();
-
+        // echo $testObj->getUsers();
+        // echo $testObj->getUsersStmt("sid101","03sid.sharma@gmail.com");
+        echo $testObj->setUsersStmt("jon","jon@gmail.com","jon123");
     ?>
 </body>
 </html>
