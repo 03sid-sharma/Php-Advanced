@@ -15,8 +15,11 @@
         // echo $testObj->getUsers();
         // echo $testObj->getUsersStmt("sid101","03sid.sharma@gmail.com");
         // echo $testObj->setUsersStmt("jon","jon@gmail.com","jon123");
-        $userObj = new UsersView();
-        $userObj->showUser("sid101");
+        // $userObj = new UsersView();
+        // $userObj->showUser("sid101");
+        
+        $userObj2 = new UsersContr();
+        $userObj2->createUser("Alex","alex@abc.com","alexpal123");
         
     
     ?>
