@@ -1,3 +1,6 @@
+<?php
+    include 'includes/class-autoload.inc.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        $testObj = new Test();
+        echo $testObj->getUsers();
+
+    ?>
 </body>
 </html>
