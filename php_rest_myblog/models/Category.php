@@ -50,7 +50,7 @@
             $this->name = $row['name'];
         }
 
-        //Create Post
+        //Create Category
         public function create(){
             //Create query
             $query = 'INSERT INTO ' . $this->table . ' SET name = :name';
@@ -74,4 +74,57 @@
             return false;
         }
         
+        //Update Post
+        public function update(){
+            //Create query
+            $query = 'UPDATE ' . $this->table . ' SET name = :name WHERE id = :id';
+            
+            // Prepare Statement
+            $stmt = $this->conn->prepare($query);
+
+            // Clean Data
+            $this->name = htmlspecialchars(strip_tags($this->name));
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            
+            // Bind Data
+            $stmt->bindParam(':name',$this->name);
+            $stmt->bindParam(':id',$this->id);
+            
+            // Execute query
+            if($stmt->execute())
+                return true;
+            
+            // Print error if something goes wrong
+            printf("Error: %s.\n",$stmt->error);
+
+            return false;
+        }
+
+        // Delete Post
+
+        public function delete(){
+            // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+    
+            // Prepare Statement
+            $stmt = $this->conn->prepare($query);
+            
+            // Clean Data
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            
+            // Bind Data
+            $stmt->bindParam(':id',$this->id);
+            
+            // Execute query
+            if($stmt->execute())
+                return true;
+            
+            // Print error if something goes wrong
+            printf("Error: %s.\n",$stmt->error);
+
+            return false;
+        }
+        
+        
+
     } 
